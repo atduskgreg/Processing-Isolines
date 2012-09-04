@@ -882,7 +882,7 @@ public class Isolines {
     // =================
 	// DRAWING FUNCTIONS                         
 	
-	public void drawContourDashed(Graphics2D g, int contour) {
+	public void drawContourDashed(int contour) {
 		double cx = 0, cy = 0;
 		for (int i = 0; i < getContourLength(contour); i++) {
 			cx += getContourX(contour, i);
@@ -904,12 +904,12 @@ public class Isolines {
 			int ny = (int)(10 * (getContourX(contour, i - 1) - getContourX(contour, i)));
 			
 			if (i % 2 == 0) {
-        g.setColor(Color.red);
+        applet.stroke(applet.color(255,0,0));
 			} else {
-        g.setColor(Color.cyan);
+        applet.stroke(applet.color(125));
 			}
-			g.drawLine(xi, yi, xj, yj);
-			g.setColor(Color.yellow);
+			applet.line(xi, yi, xj, yj);
+			applet.stroke(applet.color(0,255,0));
 			//g.drawLine(tx, ty, tx + nx, ty + ny);
 			
 			//g.drawLine((int)getContourX(contour, i), (int)getContourY(contour, i), (int)getContourX(contour, i), (int)getContourY(contour, i));

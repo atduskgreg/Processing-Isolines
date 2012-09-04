@@ -30,6 +30,7 @@ void draw() {
   if(showDepthImage){
     image(depth, 0, 0);
   }
+  finder.setThreshold(threshold);
   depth.loadPixels();
   finder.find(makeGrayscale(depth.pixels));
   stroke(255,0,0);
@@ -45,8 +46,8 @@ void draw() {
 }
 
 void mousePressed() {
-  color c = get(mouseX, mouseY);
-  println("r: " + red(c) + " g: " + green(c) + " b: " + blue(c));
+  color c = get(mouseX, mouseY);  
+  threshold = (int)red(c);
 }
 
 void keyPressed() {
@@ -55,11 +56,9 @@ void keyPressed() {
     if (threshold < 0) {
       threshold = 0;
     }
-    finder.setThreshold(threshold);
   }
   if (key == '=') {
     threshold++;
-    finder.setThreshold(threshold);
   }
   
   if(key == 'h'){
