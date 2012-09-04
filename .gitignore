@@ -23,3 +23,4 @@ local.properties
 
 # PDT-specific
 .buildpath
+web/*
