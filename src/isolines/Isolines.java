@@ -906,14 +906,42 @@ public class Isolines {
 			if (i % 2 == 0) {
         applet.stroke(applet.color(255,0,0));
 			} else {
-        applet.stroke(applet.color(125));
+        applet.stroke(applet.color(0,255,0));
 			}
 			applet.line(xi, yi, xj, yj);
-			applet.stroke(applet.color(0,255,0));
+			//applet.stroke(applet.color(0,255,0));
 			//g.drawLine(tx, ty, tx + nx, ty + ny);
 			
 			//g.drawLine((int)getContourX(contour, i), (int)getContourY(contour, i), (int)getContourX(contour, i), (int)getContourY(contour, i));
 		}
+	}
+	
+	public PVector[] getContourPoints(int contour){
+		PVector[] result = new PVector[getContourLength(contour)];
+		double cx = 0, cy = 0;
+		for (int i = 0; i < getContourLength(contour); i++) {
+			cx += getContourX(contour, i);
+		    cy += getContourY(contour, i);
+		}
+		cx = cx / getContourLength(contour);
+		cy = cy / getContourLength(contour);
+		    
+		    double s = 1.0;
+		    for (int i = 0; i < getContourLength(contour); i++) {
+		      int xi = (int)((getContourX(contour, i) - cx) * s + cx);
+		      int yi = (int)((getContourY(contour, i) - cy) * s + cy);
+		      /*int xj = (int)((getContourX(contour, i - 1) - cx) * s + cx);
+		      int yj = (int)((getContourY(contour, i - 1) - cy) * s + cy);
+		      int tx = (xi + xj) / 2;
+		      int ty = (yi + yj) / 2;
+		      int nx = (int)(10 * (getContourY(contour, i) - getContourY(contour, i - 1)));
+		      int ny = (int)(10 * (getContourX(contour, i - 1) - getContourX(contour, i)));
+		      */
+		      
+		      result[i] = new PVector(xi, yi);
+		     // applet.line(xi, yi, xj, yj);
+		    }
+		return result;
 	}
 	
 	public void drawContour(int contour){
