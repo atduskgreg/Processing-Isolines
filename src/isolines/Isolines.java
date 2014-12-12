@@ -21,7 +21,7 @@
  *  duplicated in all such forms and that any documentation,
  *  advertising materials, and other materials related to such
  *  distribution and use acknowledge that the software was developed
- *  by New York Univserity.  The name of the
+ *  by New York University.  The name of the
  *  University may not be used to endorse or promote products derived
  *  from this software without specific prior written permission.
  *  THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
@@ -384,7 +384,7 @@ public class Isolines {
 	}
 	
   ////////////////////////////////////////////////////
-  // LERP between to values
+  // LERP between two values
   ////////////////////////////////////////////////////    
   public double t(int A, int B) {
 		if (A-B == 0) return 0;
@@ -898,10 +898,10 @@ public class Isolines {
 			int yi = (int)((getContourY(contour, i) - cy) * s + cy);
 			int xj = (int)((getContourX(contour, i - 1) - cx) * s + cx);
 			int yj = (int)((getContourY(contour, i - 1) - cy) * s + cy);
-			int tx = (xi + xj) / 2;
-			int ty = (yi + yj) / 2;
-			int nx = (int)(10 * (getContourY(contour, i) - getContourY(contour, i - 1)));
-			int ny = (int)(10 * (getContourX(contour, i - 1) - getContourX(contour, i)));
+			//int tx = (xi + xj) / 2;
+			//int ty = (yi + yj) / 2;
+			//int nx = (int)(10 * (getContourY(contour, i) - getContourY(contour, i - 1)));
+			//int ny = (int)(10 * (getContourX(contour, i - 1) - getContourX(contour, i)));
 			
 			if (i % 2 == 0) {
         applet.stroke(applet.color(255,0,0));
@@ -959,10 +959,10 @@ public class Isolines {
 		      int yi = (int)((getContourY(contour, i) - cy) * s + cy);
 		      int xj = (int)((getContourX(contour, i - 1) - cx) * s + cx);
 		      int yj = (int)((getContourY(contour, i - 1) - cy) * s + cy);
-		      int tx = (xi + xj) / 2;
-		      int ty = (yi + yj) / 2;
-		      int nx = (int)(10 * (getContourY(contour, i) - getContourY(contour, i - 1)));
-		      int ny = (int)(10 * (getContourX(contour, i - 1) - getContourX(contour, i)));
+		      //int tx = (xi + xj) / 2;
+		      //int ty = (yi + yj) / 2;
+		      //int nx = (int)(10 * (getContourY(contour, i) - getContourY(contour, i - 1)));
+		      //int ny = (int)(10 * (getContourX(contour, i - 1) - getContourX(contour, i)));
 		      
 		      applet.line(xi, yi, xj, yj);
 		    }
